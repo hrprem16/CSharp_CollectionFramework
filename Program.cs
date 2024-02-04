@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Collections.ObjectModel;
 namespace Collection_Framework
 {
@@ -7,53 +8,64 @@ namespace Collection_Framework
     {
         public static void Main(string[] args)
         {
-           //Creating a list of string
-            List<string> myList = new List<string>();
+            //A stack represents LIFO (last in first out ) order.
+            // Creating Non-generic Stack that store multiple type of values
+            Stack stk1 = new Stack();
+            // add element or store elements in stack using Push()
+            stk1.Push(1);
+            stk1.Push("Pranit");
+            stk1.Push(3);
+            stk1.Push('A');
+            stk1.Push("Satish");
+            stk1.Push(4);
 
-            // Create a list of integer using collection initializer
-            List<int> myList1=new List<int> { 1,2,3,4,5,6 };
-
-            foreach(int i in myList1)
+            foreach (var i in stk1)
             {
-                Console.Write(i+" ");
+                Console.Write(i + " ");
             }
 
-            // Add or store elements in myList
-            myList.Add("Sonoo Jaiswal");
-            myList.Add("Ankit");
-            myList.Add("Peter");
-            myList.Add("Irfan");
+            // Count ->> This method is used to count the element
+            Console.WriteLine();
 
-            foreach (var i in myList)
+            Console.WriteLine("Number of element in the stack stk1 is :" + stk1.Count);
+
+            //Pop() ->>This method removes the beginning element of the stack
+
+            stk1.Pop(); // it delete the top element of stack
+
+            //Peek() ->>This method returns the object at the beginning of the stack without removing it.
+
+            stk1.Peek();
+
+            //Count ->> This method used to count the elements that present in the stack
+            int a = stk1.Count;
+            Console.WriteLine(a);
+
+            //Contains() // Determines the elements present in the stack
+            Console.WriteLine("Satish is Present in stack st1 : " + stk1.Contains("Satish")); 
+
+            //Clear() ->> This method is used to clear entire elements from the stack
+            stk1.Clear();
+
+
+
+            //Creating Generic stack that store specific type of elements
+            Stack<int> stk2 = new Stack<int>();
+            // add element or store elements in stack using Push()
+            stk2.Push(1);
+            stk2.Push(2);
+            stk2.Push(3);
+            stk2.Push(4);
+            stk2.Push(5);
+            stk2.Push(6);
+
+            foreach (int i in stk2)
             {
-                Console.WriteLine(i);
+                Console.Write(i + " ");
             }
+            Console.WriteLine();
 
-            Console.WriteLine("No of element in myList1 is : " + myList1.Count);
-
-            myList.Remove("Ankit"); // Remove the first occurence of a specific element from the list
-            myList.RemoveAt(2); // Remove the 2nd index element
-
-            myList1.RemoveAll(x => x % 2 == 0);// remove all the elements that match the condtion
-
-            myList.RemoveRange(0, 2); // remove all the even number from the list myList
-            myList.Clear(); // remove all the element from the list
-
-            myList1.Contains(4); // Determines whether the list contains a specific value
-
-            myList1.IndexOf(2); // return the index of the element
-
-            Console.WriteLine(myList1.Count); // reutrn the number of elements contained in the list
-            Console.WriteLine(myList1.Capacity); // determines the currenlty capacity of the list
-            myList1[3] = 10; // update the 3rd index of myList1 list
-
-            myList1.Sort(); // sort the list in ascending order;
-
-
-
-
-
-
+            
 
         }
     }
