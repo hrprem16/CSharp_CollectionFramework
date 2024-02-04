@@ -2,70 +2,88 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using Microsoft.VisualBasic;
+
 namespace Collection_Framework
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            //A stack represents LIFO (last in first out ) order.
-            // Creating Non-generic Stack that store multiple type of values
-            Stack stk1 = new Stack();
-            // add element or store elements in stack using Push()
-            stk1.Push(1);
-            stk1.Push("Pranit");
-            stk1.Push(3);
-            stk1.Push('A');
-            stk1.Push("Satish");
-            stk1.Push(4);
+            // C# HashSet class can be used to store, remove or view elements. It does not store duplicate elements.
+            // It is suggested to use HashSet class if you have to store only unique elements.
+            //It is generic collection 
+            HashSet<string> names = new HashSet<string>();
 
-            foreach (var i in stk1)
+            // Add() -> used to add or store elements or objects in Hashset
+            names.Add("Aman");
+            names.Add("Ashish");
+            names.Add("Atharva");
+            names.Add("Prince");
+            // Iterate HashSet elements using foreach loop
+
+            foreach(var name in names)
             {
-                Console.Write(i + " ");
+                Console.WriteLine(name);
             }
 
-            // Count ->> This method is used to count the element
-            Console.WriteLine();
+            //Let's see another example of generic HashSet<T> class that stores elements using Collection initializer.
 
-            Console.WriteLine("Number of element in the stack stk1 is :" + stk1.Count);
+            var hs = new HashSet<string>() { "Sonoo", "Ankit", "Peter", "Irfan" };
 
-            //Pop() ->>This method removes the beginning element of the stack
-
-            stk1.Pop(); // it delete the top element of stack
-
-            //Peek() ->>This method returns the object at the beginning of the stack without removing it.
-
-            stk1.Peek();
-
-            //Count ->> This method used to count the elements that present in the stack
-            int a = stk1.Count;
-            Console.WriteLine(a);
-
-            //Contains() // Determines the elements present in the stack
-            Console.WriteLine("Satish is Present in stack st1 : " + stk1.Contains("Satish")); 
-
-            //Clear() ->> This method is used to clear entire elements from the stack
-            stk1.Clear();
-
-
-
-            //Creating Generic stack that store specific type of elements
-            Stack<int> stk2 = new Stack<int>();
-            // add element or store elements in stack using Push()
-            stk2.Push(1);
-            stk2.Push(2);
-            stk2.Push(3);
-            stk2.Push(4);
-            stk2.Push(5);
-            stk2.Push(6);
-
-            foreach (int i in stk2)
+            // Iterate HashSet elements using foreach loop  
+            foreach (var name in hs)
             {
-                Console.Write(i + " ");
+                Console.WriteLine(name);
             }
-            Console.WriteLine();
+            //Count: Gets the number of elements contained in the HashSet<T>
+            Console.WriteLine("No of object in hs hashset: " + hs.Count);
 
-            
+            //Remove(T item): Removes the specified element from the HashSet< T>
+
+            hs.Remove("Peter");
+
+            //Contains(T item): Determines whether the HashSet<T> contains a specific value
+            bool containsele = hs.Contains("Prince");
+            Console.WriteLine("hs Hashset contains Prince : "+containsele);
+
+
+
+            //Clear(): Removes all elements from the HashSet<T>.
+            hs.Clear();
+
+            //HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4, 5 };
+
+            //HashSet<int> set2 = new HashSet<int> { 5,6, 3,7, 8, 7, 9 };
+
+            ////UnionWith(IEnumerable < T > other): Modifies the current set to contain all elements present in itself,
+            ////in the specified collection, or in both.
+            ////set1.UnionWith(set2);
+            //foreach(var i in set1)
+            //{
+            //    Console.Write(i+" "); //print the union of set1 and set2
+            //}
+            //Console.WriteLine();
+            ////IntersectWith(IEnumerable<T> other): Modifies the current set to contain only elements that
+            ////are present in both the set and the specified collection.
+            ////// Modifies set1 to contain only elements present in both set1 and set2
+            //set1.IntersectWith(set2);
+            //Console.WriteLine("Modified set1:");
+            //foreach (var item in set1)
+            //{
+            //    Console.Write(item+" ");
+            //}
+
+            //IsSubsetOf(IEnumerable<T> other): Determines whether the HashSet<T> is a subset of a specified collection.
+            HashSet<int> set1 = new HashSet<int> { 1, 2 };
+            HashSet<int> set2 = new HashSet<int> { 1, 2, 3, 4, 5 };
+            bool isSubset = set1.IsSubsetOf(set2);
+            Console.WriteLine("set1 is subset of set2 : " + isSubset);
+
+            //IsSupersetOf(IEnumerable<T> other): Determines whether the HashSet<T> is a superset of a specified collection.
+            Console.WriteLine("set2 is superset of set1 : " + set2.IsSupersetOf(set1));
+
 
         }
     }
