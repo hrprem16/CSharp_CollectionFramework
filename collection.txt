@@ -1,0 +1,22 @@
+----->>> Collection Framework
+
+Data Structures:-
+-Linear 
+-Non-Linear
+
+Time Complexity:-
+Big 0- worst case
+theta - specific case
+omega - least case
+
+Algorithm:-
+-Brute force
+-Searching
+-Sorting
+-greedy
+-Recursion
+-Dynamic Programming
+-BackTracking
+-Divide and Conquer:- E.g- Binary Search, Merge Sort 
+-Hashing
+-Randomization
