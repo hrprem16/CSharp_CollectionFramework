@@ -7,72 +7,49 @@ namespace Collection_Framework
     {
         public static void Main(string[] args)
         {
-            //Ctreating a collection of ints
-            Collection<int> MyColls = new Collection<int>();
+           //Creating a list of string
+            List<string> myList = new List<string>();
 
-            //Adding elements in the collection MyColls
-            MyColls.Add(1);
-            MyColls.Add(2);
-            MyColls.Add(3);
-            MyColls.Add(4);
-            MyColls.Add(5);
+            // Create a list of integer using collection initializer
+            List<int> myList1=new List<int> { 1,2,3,4,5,6 };
 
-            //Dispplay the elements in MyColls
-            foreach(int i in MyColls)
+            foreach(int i in myList1)
             {
                 Console.Write(i+" ");
             }
 
-            //Gets the number of elements actually contained in MyColls
-            Console.WriteLine("\nNo of elements contained in MyColls: " + MyColls.Count);
+            // Add or store elements in myList
+            myList.Add("Sonoo Jaiswal");
+            myList.Add("Ankit");
+            myList.Add("Peter");
+            myList.Add("Irfan");
 
-            // Get the element at index 2 
-            Console.WriteLine("Element at index 2 is : " + MyColls[2]);
-
-            // Checking if an element is in the Collection 
-            // The function returns "True" if the 
-            // item is present in Collection 
-            // else returns "False" 
-            Console.WriteLine(MyColls.Contains(2));
-            Console.WriteLine("\nIndex 3 is : " + MyColls.IndexOf(3));
-            //Removes the first occurrence of a specific object from the Collection
-            MyColls.Remove(3);
-            //Removes the element at the specified index of the Collection
-            MyColls.RemoveAt(1);
-            //Removes all elements from the Collection
-            MyColls.Clear();
-            Console.WriteLine("\nNo of elements contained in MyColls after Clear() : " + MyColls.Count);
-
-
-
-
-            //Ctreating a collection of string
-            Collection<string> MyColls1 = new Collection<string>();
-
-            // Add the elements in MyColls1
-            MyColls1.Add("Amit");
-            MyColls1.Add("Raj");
-            MyColls1.Add("Sanu");
-            MyColls1.Add("Rahul");
-            MyColls1.Add("Sid");
-            MyColls1.Add("Ankit");
-
-
-            // Creating a string array 
-            string[] myArr = new string[MyColls1.Count];
-
-            // Copying the entire Collection to a 
-            // compatible one-dimensional Array, 
-            // starting at the specified index 
-            // of the target array 
-            MyColls1.CopyTo(myArr, 0);
-
-            //Display the elements in the array myarr
-            foreach(string str in myArr)
+            foreach (var i in myList)
             {
-                Console.Write(str +" ");
+                Console.WriteLine(i);
             }
-            Console.WriteLine("\nIndex of Rahul in MyColls1 : "+ MyColls1.IndexOf("Rahul"));
+
+            Console.WriteLine("No of element in myList1 is : " + myList1.Count);
+
+            myList.Remove("Ankit"); // Remove the first occurence of a specific element from the list
+            myList.RemoveAt(2); // Remove the 2nd index element
+
+            myList1.RemoveAll(x => x % 2 == 0);// remove all the elements that match the condtion
+
+            myList.RemoveRange(0, 2); // remove all the even number from the list myList
+            myList.Clear(); // remove all the element from the list
+
+            myList1.Contains(4); // Determines whether the list contains a specific value
+
+            myList1.IndexOf(2); // return the index of the element
+
+            Console.WriteLine(myList1.Count); // reutrn the number of elements contained in the list
+            Console.WriteLine(myList1.Capacity); // determines the currenlty capacity of the list
+            myList1[3] = 10; // update the 3rd index of myList1 list
+
+            myList1.Sort(); // sort the list in ascending order;
+
+
 
 
 
