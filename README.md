@@ -43,4 +43,22 @@ Inbuilt function are:
 
 
 
-#HAs
+#HashSet
+C# HashSet class can be used to store, remove or view elements. It does not store duplicate elements. It is suggested to use HashSet class if you have to store only unique elements.
++ .HashSet<Type_of_hashset> Hashset_name = new HashSet<Type_of_hashset>();
+Inbuilt function are:
++ .Add(item)
++ .Remove(item)
++ .RemoveAt(index)
++ .Clear() // clear the entire hashset
++ .IndexOf(<value>)
+
+#SortedSet
+C# SortedSet class can be used to store, remove or view elements. It maintains ascending order and does not store duplicate elements.
+Inbuilt function are:
++ .Add(item)
++ .Remove(item)
++ .RemoveAt(index)
++ .Clear() // clear the entire hashset
++ .IndexOf(<value>)
+
