@@ -11,22 +11,50 @@ namespace Collection_Framework
     {
         public static void Main(string[] args)
         {
-            //C# SortedSet<T>
-            //C# SortedSet class can be used to store, remove or view elements. It maintains ascending order and does not
-            //store duplicate elements. It is suggested to use SortedSet class if you have to store unique elements and maintain ascending order.
-            //It is found in System.Collections.Generic namespace.
+            //C# LinkedList<T>
+            //C# LinkedList<T> class uses the concept of linked list. It allows us to insert and delete elements fastly.
+            //It can have duplicate elements.
 
-            SortedSet<string> ss = new SortedSet<string>(); // Creating Sorted set of type string
+            LinkedList<string> lk1 = new LinkedList<string>(); // Creatin LL of string
+            lk1.AddLast("Sonoo Jaiswal");
+            lk1.AddLast("Ankit");
+            lk1.AddLast("Peter");
+            lk1.AddLast("Irfan");
+            lk1.AddFirst("John");//added to first index  
 
-            ss.Add("Ankit"); // add or store element in ss SortedSet
-            ss.Add("Chandra");
-            ss.Add("Dhanush");
-            ss.Add("Elye");
-            ss.Add("Gokul");
-            ss.Add("Ankit"); // duplicate will not be added
+            // Iterate list element using foreach loop  
+            foreach (var name in lk1)
+            {
+                Console.WriteLine(name);
+            }
+            Console.WriteLine("Element present in LL are: " + lk1.Count);
 
-            // Rest the remaning method and properties are same as HashSet
+            //Let's see another example of generic LinkedList<T> class that stores elements before and after specific node.
+            //To get the specific node, we are calling Find() method.
+            LinkedListNode<String> node = lk1.Find("Peter"); //find node which contains peter
+            lk1.AddAfter(node, "Prince"); // Add Node after Peter
+            lk1.AddBefore(node, "Chandru"); // Add
+            Console.WriteLine("After add node at spefic position");
 
+            foreach (var name in lk1)
+            {
+                Console.WriteLine(name);
+            }
+            lk1.Remove("Irfan");
+            lk1.Remove(node);
+            lk1.RemoveFirst();
+            lk1.RemoveLast();
+            Console.WriteLine("*****************");
+            foreach (var name in lk1)
+            {
+                Console.WriteLine(name);
+            }
+
+            //Clear(): This method is used to remove all nodes from the LinkedList.
+
+            Console.WriteLine("Is Chandru is present in node: " + lk1.Contains("Chandru"));
+
+            
 
         }
     }
